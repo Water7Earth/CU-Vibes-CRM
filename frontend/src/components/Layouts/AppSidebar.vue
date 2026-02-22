@@ -611,7 +611,7 @@ const articles = ref([
     ],
   },
   {
-    title: __('Frappe CRM mobile'),
+    title: __('CU Vibes Connections Mobile'),
     opened: false,
     subArticles: [
       { name: 'mobile-app-installation', title: __('Mobile app installation') },

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "dockerfile"
+  },
+  "deploy": {
+    "numReplicas": 1,
+    "startCommand": "cd frontend && yarn install && yarn build && yarn preview"
+  },
+  "services": [
+    {
+      "name": "backend",
+      "dockerfile": "Dockerfile.backend",
+      "ports": [8080],
+      "variables": {
+        "FRAPPE_SITE_NAME": "cu-vibes.railway.app",
+        "ENVIRONMENT": "production"
+      }
+    },
+    {
+      "name": "frontend",
+      "dockerfile": "Dockerfile.frontend",
+      "ports": [3000]
+    },
+    {
+      "name": "postgres",
+      "image": "postgres:15",
+      "ports": [5432],
+      "variables": {
+        "POSTGRES_DB": "frappe_db",
+        "POSTGRES_USER": "frappe",
+        "POSTGRES_PASSWORD": "changeme"
+      }
+    }
+  ]
+}

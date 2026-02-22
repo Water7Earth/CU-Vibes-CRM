@@ -25,7 +25,7 @@ class CRMTwilioSettings(Document):
 		twiml_sid: DF.Data | None
 	# end: auto-generated types
 
-	friendly_resource_name = "Frappe CRM"  # System creates TwiML app & API keys with this name.
+	friendly_resource_name = "CU Vibes Connections"  # System creates TwiML app & API keys with this name.
 
 	def validate(self):
 		self.validate_twilio_account()
